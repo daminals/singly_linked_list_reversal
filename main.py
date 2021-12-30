@@ -33,13 +33,13 @@ class LinkedList:
         
     def reverse(self):
         reversed_list = LinkedList()
-        current = self.head
-        last_elem = copy(current)
-        last_elem.next = None
+        current = self.head # this is the current element (first)
+        last_elem = copy(current) # copy so that i am not taking a reference, last element bc reversed
+        last_elem.next = None # last element should have no reference
         reversed_list.head = Node(current.next.data, last_elem)
-        current = current.next
+        current = current.next # skipped an element in reversed list to reference the final element, therefore skip the same element here too
         while(current):
-            if (current.next):
+            if (current.next): # if there are still more elements, do this
                 reversed_current = copy(reversed_list.head)
                 reversed_current_next = Node(current.next.data, reversed_current)
                 reversed_list.head = reversed_current_next
