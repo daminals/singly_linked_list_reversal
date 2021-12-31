@@ -33,6 +33,8 @@ class LinkedList:
         
     def reverse(self):
         reversed_list = LinkedList()
+        if self.head.next == None:
+            return self
         current = self.head # this is the current element (first)
         last_elem = copy(current) # copy so that i am not taking a reference, last element bc reversed
         last_elem.next = None # last element should have no reference
